@@ -11,8 +11,8 @@ function doGet(e) {
 }
 
 function getSpreadsheetData() {
-//https://docs.google.com/spreadsheets/d/1n5GmuhaAEYrM0HSjSuOrJK-bxQknsg65h6DRu-1AVj0/edit?usp=sharing
-  var ssID   = "1n5GmuhaAEYrM0HSjSuOrJK-bxQknsg65h6DRu-1AVj0",
+//https://docs.google.com/spreadsheets/d/YOUR_ID/edit?usp=sharing
+  var ssID   = "YOUR_ID",
       sheet  = SpreadsheetApp.openById(ssID).getSheets()[0],
       data   = sheet.getDataRange().getValues();
  
