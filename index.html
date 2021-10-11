@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <script src="https://www.google.com/jsapi"></script>
+</head>
+
+<body>
+  <div id="main"></div>
+
+  <div id="main2"></div>
+
+  <script>
+    google.load('visualization', '1', {
+      packages: ['corechart', 'bar']
+    });
+    google.setOnLoadCallback(getSpreadsheetData);
+    function getSpreadsheetData() {
+      google.script.run.withSuccessHandler(drawChart).getSpreadsheetData();
+    }
+    function drawChart(rows) {
+      var options = {
+        title: 'Jumlah Lulusan Periode 1 Tahun Akademik 2021/2022',
+        legend: 'none',
+        chartArea: {
+          width: '50%'
+        },
+        vAxis: {
+          textStyle: {
+            fontFamily: 'Arial',
+            fontSize: 12
+          }
+        }
+      };
+
+      var data = google.visualization.arrayToDataTable(rows, false),
+        chart = new google.visualization.BarChart(document.getElementById("main"));
+         chart.draw(data, options);
+
+      var data2 = google.visualization.arrayToDataTable(rows, false),
+        chart2 = new google.visualization.BarChart(document.getElementById("main2"));
+         chart2.draw(data2, options);
+
+    }
+  </script>
+</body>
+
+</html>
